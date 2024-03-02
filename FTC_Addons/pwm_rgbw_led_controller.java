@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.FTC_Addons;
+package org.firstinspires.ftc.teamcode.hardwareClasses.FTC_Addons;
 
 import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.PwmControl;

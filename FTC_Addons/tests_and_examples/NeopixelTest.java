@@ -1,14 +1,15 @@
-package org.firstinspires.ftc.teamcode.FTC_Addons.tests_and_examples;
+package org.firstinspires.ftc.teamcode.hardwareClasses.FTC_Addons.tests_and_examples;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
-import org.firstinspires.ftc.teamcode.FTC_Addons.AdafruitNeopixelSeesaw;
+import org.firstinspires.ftc.teamcode.hardwareClasses.FTC_Addons.AdafruitNeodriver;
 
 @TeleOp
+//@Disabled
 public class NeopixelTest extends LinearOpMode {
 
-    AdafruitNeopixelSeesaw neo;
+    AdafruitNeodriver neo;
 
 
 
@@ -28,6 +29,9 @@ public class NeopixelTest extends LinearOpMode {
                     neo.setColor(WRGB, (short) i);
                 }
 
+                sleep(1000);
+                neo.clearAllPixels();
+                sleep(1000);
 
                 int red = ((WRGB >> (8*2)) & 0xfe);
                 int green = ((WRGB >> (8*1)) & 0xfe);
@@ -43,12 +47,15 @@ public class NeopixelTest extends LinearOpMode {
                 telemetry.update();
 
             }
+
+
         }
+
     }
 
     public void initialize_opmode(){
-        neo = hardwareMap.get(AdafruitNeopixelSeesaw.class, "neopixels");
-        neo.setPixelType(AdafruitNeopixelSeesaw.ColorOrder.NEO_GRB);
+        neo = hardwareMap.get(AdafruitNeodriver.class, "neopixels");
+        neo.setPixelType(AdafruitNeodriver.ColorOrder.NEO_GRB);
         neo.init_neopixels();
 
     }
